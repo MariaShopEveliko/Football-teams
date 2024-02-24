@@ -1,0 +1,26 @@
+// #region Colors
+$white: #FFFFFF;
+
+$grey-100: #F5F7F9 !default;
+
+$blue-100: #E1E7ED !default;
+$blue-200: #6F8CAA !default;
+$blue-300: #00B1FF !default;
+$blue-400: #1E3554 !default;
+$blue-600: #112948 !default;
+$blue-500: #1A3150 !default;
+
+$primary: $blue-300 !default;
+// #endregion Colors
+
+// #region Components
+$border-width: 1px !default;
+// #endregion Components
+
+// #region Typography
+$font-size-base: 14px;
+$font-family-base: Montserrat, sans-serif;
+// #endregion Typography
+
+// Grid breakpoints
+$grid-breakpoints-xs: 350px;

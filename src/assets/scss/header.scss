@@ -1,0 +1,41 @@
+header {
+  background-color: $blue-400;
+  color: $white;
+  padding: 30px 25px;
+  display: flex;
+
+  @media screen and (max-width: $grid-breakpoints-xs) {
+    padding: 20px 15px;
+  }
+}
+
+.notifications {
+  background: transparent url("/src/assets/img/notification.svg") center/cover
+    no-repeat;
+  border: none;
+  margin-left: auto;
+  padding: 0;
+  position: relative;
+  width: 20px;
+  height: 20px;
+
+  .notification-count {
+    position: absolute;
+    bottom: -8px;
+    right: -8px;
+    font-size: 10px;
+    background-color: $primary;
+    border-radius: 50%;
+    color: $white;
+    width: 18px;
+    height: 18px;
+    line-height: 14px;
+    text-align: center;
+    border: 2px solid $blue-400;
+  }
+}
+
+.logo{
+    margin-left: 15px;
+    height: 18px;
+}
