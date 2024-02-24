@@ -1,7 +1,8 @@
 // #region Colors
-$white: #FFFFFF;
+$white: #FFFFFF !default;
 
 $grey-100: #F5F7F9 !default;
+$grey-200: #dde2e8 !default;
 
 $blue-100: #E1E7ED !default;
 $blue-200: #6F8CAA !default;
@@ -13,14 +14,16 @@ $blue-500: #1A3150 !default;
 $primary: $blue-300 !default;
 // #endregion Colors
 
-// #region Components
+// #region Border
 $border-width: 1px !default;
-// #endregion Components
+$border-radius: 8px !default;
+// #endregion Border
 
 // #region Typography
-$font-size-base: 14px;
-$font-family-base: Montserrat, sans-serif;
+$font-size-base: 14px !default;
+$font-family-base: Montserrat, sans-serif !default;
 // #endregion Typography
 
 // Grid breakpoints
-$grid-breakpoints-xs: 350px;
+$grid-breakpoints-xs: 350px !default;
+$grid-breakpoints-sm: 1280px !default;

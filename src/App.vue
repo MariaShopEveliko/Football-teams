@@ -1,7 +1,7 @@
 <template>
-  <div id="app">
+  <div id="app" class="d-flex flex-column h-100">
     <TheHeader />
-    <TheMain />
+    <TheMain :class-names="'flex-1'" />
   </div>
 </template>
 

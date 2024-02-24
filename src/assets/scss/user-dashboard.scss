@@ -1,0 +1,10 @@
+.profile-card {
+  background-color: $white;
+  border-radius: $border-radius;
+  max-width: 600px;
+  margin: 16px auto;
+
+  @media screen and (max-width: $grid-breakpoints-sm) {
+    margin-top: 0;
+  }
+}

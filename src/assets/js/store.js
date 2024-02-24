@@ -7,12 +7,17 @@ export default new Vuex.Store({
   state: {
     allTeams: JSON.parse(localStorage.getItem("allTeams") || "[]"),
     followedTeams: JSON.parse(localStorage.getItem("followedTeams") || "[]"),
+    pageTitle: "Oddspedia"
   },
   getters: {
     allTeams: (state) => state.allTeams,
     followedTeams: (state) => state.followedTeams,
+    pageTitle: (state) => state.pageTitle
   },
   mutations: {
+    setPageTitle(state, title){
+      state.pageTitle = title;
+    },
     setTeams(state, teams) {
       state.allTeams = teams;
       localStorage.setItem("allTeams", JSON.stringify(teams));

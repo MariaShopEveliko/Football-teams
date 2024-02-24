@@ -1,24 +1,32 @@
 <template>
-  <header class="d-flex">
-    <a href="#" class="back-btn">
-      <img src="@/assets/img/arrow-left.svg" />
-      <span class="sr-only">Go back to ...</span></a>
-    <a href="https://oddspedia.com" class="logo">
-      <picture>
-        <source media="(min-width:992px)" srcset="@/assets/img/logo.png" />
-        <img src="@/assets/img/logo-mobile.png" alt="Logo" />
-      </picture>
-    </a>
-    <button type="button" class="btn notifications">
-      <div class="notification-count">
-        <span class="sr-only">Notifications count is </span> 2
-      </div>
-    </button>
-  </header>
+    <header>
+        <div>
+            <a href="#" class="back-btn">
+                <img src="@/assets/img/arrow-left.svg" />
+                <span class="sr-only">Go back to ...</span></a>
+            <a href="https://oddspedia.com" class="logo">
+                <picture>
+                    <source media="(min-width:1280px)" srcset="@/assets/img/logo.png" />
+                    <img src="@/assets/img/logo-mobile.png" alt="Logo" />
+                </picture>
+            </a>
+        </div>
+        <h1 class="page-title">{{ pageTitle }} <span class="sr-only">page</span></h1>
+        <button type="button" class="btn notifications">
+            <div class="notifications-count">
+                <span class="sr-only">Notifications count is </span> 2
+            </div>
+        </button>
+    </header>
 </template>
 
 <script>
+import { mapGetters } from "vuex";
+
 export default {
-  name: "TheHeader",
+    name: "TheHeader",
+    computed: {
+        ...mapGetters(["pageTitle"])
+    }
 };
 </script>

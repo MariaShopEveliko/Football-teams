@@ -1,5 +1,6 @@
 <template>
-    <div>
+    <div class="profile-card">
+        <div class="card-header"></div>
         Search teams
         <input type="text" v-model="searchQuery" @input="search" placeholder="Search teams" />
         <ul>
@@ -32,7 +33,7 @@
 import { mapGetters, mapActions } from "vuex";
 
 export default {
-    name: "MyTeams",
+    name: "UserDashboard",
     computed: {
         ...mapGetters(["allTeams", "followedTeams"]),
     },
@@ -40,6 +41,7 @@ export default {
         return {
             searchQuery: "",
             filteredTeams: [],
+            useName: "RichyRich"
         };
     },
     methods: {
@@ -89,6 +91,7 @@ export default {
         } else {
             this.filteredTeams = this.allTeams;
         }
+        this.$store.commit("setPageTitle", this.useName);
     },
 };
 </script>
