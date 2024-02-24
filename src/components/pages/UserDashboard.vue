@@ -2,7 +2,7 @@
     <div class="profile-card">
         <div class="card-header"></div>
         Search teams
-        <input type="text" v-model="searchQuery" @input="search" placeholder="Search teams" />
+        <input type="text" v-model="searchQuery" @input="search" placeholder="Search for a team" />
         <ul>
             <li v-for="(team, index) in filteredTeams" :key="index">
                 {{ team.name }} - {{ team.stadium }} - {{ team.leagues.join(", ") }}

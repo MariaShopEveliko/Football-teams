@@ -11,7 +11,7 @@
                 </picture>
             </a>
         </div>
-        <h1 class="page-title">{{ pageTitle }} <span class="sr-only">page</span></h1>
+        <h1 class="page-title m-0">{{ pageTitle }}</h1>
         <button type="button" class="btn notifications">
             <div class="notifications-count">
                 <span class="sr-only">Notifications count is </span> 2

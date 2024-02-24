@@ -21,9 +21,11 @@ $border-radius: 8px !default;
 
 // #region Typography
 $font-size-base: 12px !default;
-$font-family-base: Montserrat, sans-serif !default;
+$font-family-base: Roboto, "Roboto", sans-serif !default;
 // #endregion Typography
 
 // Grid breakpoints
 $grid-breakpoints-xs: 350px !default;
+$grid-breakpoints-xs-max: $grid-breakpoints-xs - 1 !default;
 $grid-breakpoints-sm: 1280px !default;
+$grid-breakpoints-sm-max: 1280px - 1 !default;

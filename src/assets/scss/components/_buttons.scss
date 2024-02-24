@@ -1,0 +1,25 @@
+.btn {
+    border: 1px solid transparent;
+    display: inline-block;
+    font-size: $font-size-base;
+    text-align: center;
+    text-decoration: none;
+    vertical-align: middle;
+  
+    &:hover {
+      cursor: pointer;
+    }
+  }
+  .btn-sm {
+    border-radius: 80px;
+    padding: 8px 20px;
+  }
+  .btn-primary {
+    background-color: $primary;
+    color: $white;
+  }
+  .btn-outlined-primary {
+    background-color: $white;
+    border: 1px solid $primary;
+    color: $primary;
+  }

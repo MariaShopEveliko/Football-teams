@@ -21,3 +21,6 @@ main {
     background-color: $grey-200;
   }
 }
+.sr-only {
+  @include sr-only;
+}
