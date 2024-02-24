@@ -7,24 +7,24 @@
             <li v-for="(team, index) in filteredTeams" :key="index">
                 {{ team.name }} - {{ team.stadium }} - {{ team.leagues.join(", ") }}
                 {{ team.id }}
-                <button @click="toggleFollow(team)">
-                    {{
-                        followedTeams.some((followedTeam) => followedTeam.id === team.id)
-                        ? "Unfollow"
-                        : "Follow"
-                    }}
+                <button :class="['btn', 'btn-sm', isFollowingTheTeam(team) ? 'btn-outlined-primary' : 'btn-primary']"
+                    @click="toggleFollow(team)">
+                    {{ isFollowingTheTeam(team) ? 'Unfollow' : 'Follow' }}
                 </button>
             </li>
         </ul>
         <div v-if="filteredTeams.length === 0">No Teams Found</div>
-        <div>
-            My teams:
-            <ul>
+        <div class="profile-card-footer">
+            <h2 class="text-uppercase">My teams</h2>
+            <ul v-if="followedTeams.length > 0">
                 <li v-for="(team, index) in followedTeams" :key="index">
                     {{ team.id }}
                     {{ team.name }}
                 </li>
             </ul>
+            <div v-else class="no-teams-wrp text-muted w-100 d-flex align-items-center justify-content-center">
+                <p class="m-0">You aren't following any teams yet.</p>
+            </div>
         </div>
     </div>
 </template>
@@ -80,6 +80,9 @@ export default {
                 this.$store.commit("clearAllTeams");
                 localStorage.removeItem("expiresIn");
             }
+        },
+        isFollowingTheTeam(team) {
+            return this.followedTeams.some(followedTeam => followedTeam.id === team.id);
         },
     },
     beforeMount() {

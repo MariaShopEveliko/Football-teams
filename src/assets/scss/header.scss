@@ -16,31 +16,40 @@ header {
   }
 
   .notifications {
+    --size: 20px;
     background: transparent url("/src/assets/img/notification.svg") center/cover
       no-repeat;
     border: none;
-    height: 20px;
+    height: var(--size);
     padding: 0;
     position: relative;
-    width: 20px;
+    width: var(--size);
 
     &-count {
+      --size: 18px;
+      --border: 2px;
       background-color: $primary;
-      border: 2px solid $blue-400;
+      border: var(--border) solid $blue-400;
       border-radius: 50%;
       bottom: -8px;
       color: $white;
       font-size: 10px;
-      height: 18px;
-      line-height: 14px;
+      height: var(--size);
+      line-height: calc(var(--size) - var(--border));
       position: absolute;
       right: -8px;
       text-align: center;
-      width: 18px;
+      width: var(--size);
     }
   }
   .page-title{
     color: $white;
     margin: 0;
+
+    @media screen and (max-width: $grid-breakpoints-sm){
+      height: unset;
+      width: unset;
+      overflow: unset;
+    }
   }
 }
