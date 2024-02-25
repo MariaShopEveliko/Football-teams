@@ -23,12 +23,7 @@
         </div>
         <div class="profile-card-body">
             <h2 class="text-uppercase">Search teams</h2>
-            <div class="input-wrp">
-                <input type="text" v-model="searchQuery" @input="search" placeholder="Search for a team" class="input" />
-                <button type="button" class="btn clear-btn" @click="clearSearch()" v-show="searchQuery">
-                    <span class="sr-only">Clear input</span>
-                </button>
-            </div>
+            <SearchBox v-model="searchQuery" @input="search" @clear="clearSearch" />
             <ul v-if="filteredTeams.length > 0" role="list" tabindex="0">
                 <li v-for="(team, index) in filteredTeams" :key="index" role="listitem" tabindex="-1">
                     {{ team.name }} - {{ team.stadium }} - {{ team.leagues.join(", ") }}
@@ -60,11 +55,13 @@
 <script>
 import { mapGetters, mapActions } from "vuex";
 import NotFound from "../molecules/NotFound.vue";
+import SearchBox from "../molecules/SearchBox.vue";
 
 export default {
     name: "UserDashboard",
     components: {
-        NotFound
+        NotFound,
+        SearchBox
     },
     computed: {
         ...mapGetters(["allTeams", "followedTeams"]),
