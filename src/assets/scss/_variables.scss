@@ -1,3 +1,5 @@
+@use "sass:math";
+
 // #region Colors
 $white: #FFFFFF !default;
 
@@ -21,11 +23,11 @@ $border-radius: 8px !default;
 
 // #region Typography
 $font-size-base: 14px !default;
-$font-size-xxs: (10px / $font-size-base) * 1rem !default;
-$font-size-xs: (11px / $font-size-base) * 1rem !default;
-$font-size-sm: (12px / $font-size-base) * 1rem !default;
-$font-size-md: (14px / $font-size-base) * 1rem !default;
-$font-size-lg: (16px / $font-size-base) * 1rem !default;
+$font-size-xxs: math.div(10px, $font-size-base) * 1rem !default;
+$font-size-xs: math.div(11px, $font-size-base) * 1rem !default;
+$font-size-sm: math.div(12px, $font-size-base) * 1rem !default;
+$font-size-md: math.div(14px, $font-size-base) * 1rem !default;
+$font-size-lg: math.div(16px, $font-size-base) * 1rem !default;
 
 $font-family-base: Roboto, "Roboto", sans-serif !default;
 // #endregion Typography
@@ -35,3 +37,5 @@ $grid-breakpoints-xs: 350px !default;
 $grid-breakpoints-xs-max: $grid-breakpoints-xs - 1 !default;
 $grid-breakpoints-sm: 1280px !default;
 $grid-breakpoints-sm-max: 1280px - 1 !default;
+
+$transition: .3s;

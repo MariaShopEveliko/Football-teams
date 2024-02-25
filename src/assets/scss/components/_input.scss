@@ -1,0 +1,41 @@
+.input-wrp {
+  background: $grey-100 url("/src/assets/img/search.svg") 14px center/17px no-repeat;
+  border-radius: 80px;
+  position: relative;
+
+  .input {
+    background-color: transparent;
+    border: 0;
+    padding: 10px 44px;
+    color: $blue-500;
+    width: 100%;
+    line-height: 1.3rem;
+
+    &::-webkit-input-placeholder{
+        color: $blue-200;
+    }
+
+    &::-moz-placeholder{
+        color: $blue-200;
+    }
+    
+    &:-ms-input-placeholder{
+        color: $blue-200;
+    }
+
+    &:-moz-placeholder{
+        color: $blue-200;
+    }
+  }
+
+  .clear-btn {
+    background: transparent url("/src/assets/img/close.svg") center/12px no-repeat;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    right: 14px;
+    top:0;
+    bottom: 0;
+    margin: auto;
+  }
+}
