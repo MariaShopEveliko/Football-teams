@@ -24,10 +24,16 @@
         <div class="profile-card-body">
             <h2 class="text-uppercase">Search teams</h2>
             <SearchBox v-model="searchQuery" @input="search" @clear="clearSearch" />
-            <ul v-if="filteredTeams.length > 0" role="list" tabindex="0">
-                <li v-for="(team, index) in filteredTeams" :key="index" role="listitem" tabindex="-1">
-                    {{ team.name }} - {{ team.stadium }} - {{ team.leagues.join(", ") }}
-                    {{ team.id }}
+            <ul v-if="filteredTeams.length > 0" role="list" tabindex="0" class="teams-wrp">
+                <li v-for="(team, index) in filteredTeams" :key="index" role="listitem" tabindex="-1"
+                    class="team-item d-flex flex-row align-items-center">
+                    <div class="team-logo">
+                        <img src="@/assets/img/team-placeholder.png" :alt="team.name + ' logo'" />
+                    </div>
+                    <div class="flex-1">
+                        <span>{{ team.leagues.join(", ") }}</span>
+                        <p>{{ team.name }} | {{ team.stadium }}</p>
+                    </div>
                     <button
                         :class="['btn btn-sm text-uppercase', isFollowingTheTeam(team) ? 'btn-outlined-primary' : 'btn-primary']"
                         @click="toggleFollow(team)">

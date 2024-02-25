@@ -1,0 +1,25 @@
+.teams-wrp {
+  .team-item {
+    padding: 5px 10px;
+    transition: $transition background-color;
+
+    .team-logo {
+      background-color: $grey-100;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      padding: 6px;
+      transition: $transition background-color;
+      margin-right: 15px;
+    }
+
+    &:hover,
+    &:focus {
+      background-color: $grey-100;
+
+      .team-logo {
+        background-color: $white;
+      }
+    }
+  }
+}
