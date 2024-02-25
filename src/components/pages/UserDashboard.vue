@@ -40,10 +40,7 @@
                     </button>
                 </li>
             </ul>
-            <div class="text-center" v-else>
-                <img src="@/assets/img/no-results.png" />
-                <p class="text-muted m-0">No Teams Found</p>
-            </div>
+            <NotFound v-else :errorText="'No Teams Found'" />
         </div>
         <div class="profile-card-footer">
             <h2 class="text-uppercase">My teams</h2>
@@ -62,9 +59,13 @@
 
 <script>
 import { mapGetters, mapActions } from "vuex";
+import NotFound from "../molecules/NotFound.vue";
 
 export default {
     name: "UserDashboard",
+    components: {
+        NotFound
+    },
     computed: {
         ...mapGetters(["allTeams", "followedTeams"]),
     },
