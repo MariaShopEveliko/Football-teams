@@ -33,7 +33,7 @@ header {
       border-radius: 50%;
       bottom: -8px;
       color: $white;
-      font-size: 10px;
+      font-size: $font-size-xxs;
       height: var(--size);
       line-height: calc(var(--size) - var(--border));
       position: absolute;

@@ -20,7 +20,13 @@ $border-radius: 8px !default;
 // #endregion Border
 
 // #region Typography
-$font-size-base: 12px !default;
+$font-size-base: 14px !default;
+$font-size-xxs: (10px / $font-size-base) * 1rem !default;
+$font-size-xs: (11px / $font-size-base) * 1rem !default;
+$font-size-sm: (12px / $font-size-base) * 1rem !default;
+$font-size-md: (14px / $font-size-base) * 1rem !default;
+$font-size-lg: (16px / $font-size-base) * 1rem !default;
+
 $font-family-base: Roboto, "Roboto", sans-serif !default;
 // #endregion Typography
 

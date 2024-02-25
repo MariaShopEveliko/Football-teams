@@ -11,15 +11,30 @@ h6 {
   color: $blue-500;
 }
 
+h1{
+    font-size: $font-size-md;
+}
+h2{
+    font-size: $font-size-base;
+}
+
 p {
   margin-bottom: 1rem;
 }
-
-.fs-sm {
-  font-size: 0.9167rem;
+.fs-xxs { 
+  font-size: $font-size-xxs;
 }
-.fs-xs {
-  font-size: 0.8333rem;
+.fs-xs { 
+  font-size: $font-size-xs;
+}
+.fs-sm { 
+  font-size: $font-size-sm;
+}
+.fs-md { 
+  font-size: $font-size-md;
+}
+.fs-lg{
+    font-size: $font-size-lg;
 }
 
 .text-uppercase {
@@ -28,4 +43,11 @@ p {
 
 .text-muted {
   color: $blue-200;
+}
+
+.text-center {
+  text-align: center;
+}
+.text-white {
+  color: $white;
 }

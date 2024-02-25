@@ -1,15 +1,25 @@
 <template>
-    <div class="profile-card">
-        <div class="card-header"></div>
+    <section class="profile-card">
+        <div class="profile-card-header d-flex flex-column">
+            <div class="d-flex align-items-center profile-info-wrp">
+                <div class="profile-img" :style="{ 'background-image': 'url(' + require('@/assets/img/avatar.png') + ')' }">
+                </div>
+                <h2 class="text-white m-0 fs-lg profil-name">RichyRich</h2>
+            </div>
+            <div class="profile-level-wrp text-center">
+                <span class="profile-level fs-xxs text-white">Level 5</span>
+            </div>
+        </div>
         Search teams
         <input type="text" v-model="searchQuery" @input="search" placeholder="Search for a team" />
-        <ul>
-            <li v-for="(team, index) in filteredTeams" :key="index">
+        <ul role="list" tabindex="0">
+            <li v-for="(team, index) in filteredTeams" :key="index" role="listitem" tabindex="-1">
                 {{ team.name }} - {{ team.stadium }} - {{ team.leagues.join(", ") }}
                 {{ team.id }}
-                <button :class="['btn', 'btn-sm', isFollowingTheTeam(team) ? 'btn-outlined-primary' : 'btn-primary']"
+                <button
+                    :class="['btn btn-sm text-uppercase', isFollowingTheTeam(team) ? 'btn-outlined-primary' : 'btn-primary']"
                     @click="toggleFollow(team)">
-                    {{ isFollowingTheTeam(team) ? 'Unfollow' : 'Follow' }}
+                    {{ isFollowingTheTeam(team) ? 'Following' : 'Follow' }}
                 </button>
             </li>
         </ul>
@@ -23,10 +33,10 @@
                 </li>
             </ul>
             <div v-else class="no-teams-wrp text-muted w-100 d-flex align-items-center justify-content-center">
-                <p class="m-0">You aren't following any teams yet.</p>
+                <p class="m-0 fs-sm">You aren't following any teams yet.</p>
             </div>
         </div>
-    </div>
+    </section>
 </template>
 
 <script>

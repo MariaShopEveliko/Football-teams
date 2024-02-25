@@ -3,21 +3,64 @@
   border-radius: $border-radius;
   max-width: 600px;
   margin: 16px auto;
+  overflow: hidden;
 
   @media screen and (max-width: $grid-breakpoints-sm) {
     margin-top: 0;
   }
-}
 
-.profile-card-footer {
-  border-top: 8px solid $blue-100;
-  padding: 10px;
+  .profile-card-header {
+    --avatar-size: 60px;
+    background-color: $blue-600;
+    padding: 40px 42px;
+    @media screen and (max-width: $grid-breakpoints-sm) {
+      align-items: center;
+    }
 
-  .no-teams-wrp {
-    background-color: $grey-100;
-    border-radius: $border-radius;
-    min-height: 90px;
-    padding: 15px;
-    text-align: center;
+    .profile-img {
+      background: center/cover no-repeat;
+      border-radius: 50%;
+      width: var(--avatar-size);
+      height: var(--avatar-size);
+      margin-right: 20px;
+
+      @media screen and (max-width: $grid-breakpoints-sm) {
+        margin-right: 0;
+      }
+    }
+
+    .profile-level-wrp {
+      margin-top: 6px;
+      width: var(--avatar-size);
+
+      .profile-level {
+        background-color: rgba($white, 0.05);
+        border-radius: 40px;
+        padding: 2px 9px;
+      }
+    }
+
+    .profil-name{
+      font-family: "Montserrat";
+      font-style: italic;
+      font-weight: 700;
+      
+      @media screen and (max-width: $grid-breakpoints-sm) {
+        display: none;
+      }
+    }
+  }
+
+  .profile-card-footer {
+    border-top: 8px solid $blue-100;
+    padding: 10px;
+
+    .no-teams-wrp {
+      background-color: $grey-100;
+      border-radius: $border-radius;
+      min-height: 90px;
+      padding: 15px;
+      text-align: center;
+    }
   }
 }
