@@ -26,13 +26,16 @@
             <SearchBox v-model="searchQuery" @input="search" @clear="clearSearch" />
             <ul v-if="filteredTeams.length > 0" role="list" tabindex="0" class="teams-wrp">
                 <li v-for="(team, index) in filteredTeams" :key="index" role="listitem" tabindex="-1"
-                    class="team-item d-flex flex-row align-items-center">
+                    :class="['team-item d-flex flex-row align-items-center', isActiveIndex(index) ? 'focused' : null]"
+                    @mouseover="updateActiveTeamIndex(index)" @focus="updateActiveTeamIndex(index)">
                     <div class="team-logo">
                         <img src="@/assets/img/team-placeholder.png" :alt="team.name + ' logo'" />
                     </div>
                     <div class="flex-1">
-                        <span>{{ team.leagues.join(", ") }}</span>
-                        <p>{{ team.name }} | {{ team.stadium }}</p>
+                        <div><span class="text-muted fs-xs" v-if="team.leagues">{{ team.leagues.join(", ") }}</span></div>
+                        <span>{{ team.name }}</span> <span v-if="team.stadium" class="fs-sm text-muted">
+                            | {{ team.stadium
+                            }}</span>
                     </div>
                     <button
                         :class="['btn btn-sm text-uppercase', isFollowingTheTeam(team) ? 'btn-outlined-primary' : 'btn-primary']"
@@ -76,7 +79,8 @@ export default {
         return {
             searchQuery: "",
             filteredTeams: [],
-            useName: "RichyRich"
+            useName: "RichyRich",
+            activeTeamIndex: null
         };
     },
     methods: {
@@ -122,6 +126,12 @@ export default {
         clearSearch() {
             this.searchQuery = "";
             this.filteredTeams = this.allTeams;
+        },
+        updateActiveTeamIndex(index){
+            this.activeTeamIndex = index;
+        },
+        isActiveIndex(index){
+            return this.activeTeamIndex === index
         }
     },
     beforeMount() {

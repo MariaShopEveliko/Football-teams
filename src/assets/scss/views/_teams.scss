@@ -13,8 +13,7 @@
       margin-right: 15px;
     }
 
-    &:hover,
-    &:focus {
+    &.focused {
       background-color: $grey-100;
 
       .team-logo {
