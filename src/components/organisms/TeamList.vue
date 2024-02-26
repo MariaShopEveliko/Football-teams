@@ -7,12 +7,11 @@
                 <img src="@/assets/img/team-placeholder.png" :alt="team.name + ' logo'" />
             </div>
             <div class="flex-1">
-                <span class="text-muted fs-xs" v-if="team.leagues && !isSimpleList">{{ team.leagues.join(", ") }}</span>
+                <span class="text-muted fs-xs" v-if="team.leagues && !isSimpleList" v-html="formattedLeagues(team)"></span>
                 <div>
-                    <span class="team-name">{{ team.name }}</span>
-                    <span v-if="team.stadium && !isSimpleList" class="fs-sm text-muted team-stadium-wrp">
-                        {{ team.stadium }}
-                    </span>
+                    <span class="team-name" v-html="highlightText(team.name)"></span>
+                    <span v-if="team.stadium && !isSimpleList" class="fs-sm text-muted team-stadium-wrp"
+                        v-html="highlightText(team.stadium)"></span>
                 </div>
             </div>
             <Button v-if="!isSimpleList"
@@ -30,11 +29,6 @@ export default {
     components: {
         Button
     },
-    data() {
-        return {
-            activeTeamIndex: null
-        };
-    },
     props: {
         teams: {
             type: Array,
@@ -45,7 +39,13 @@ export default {
         isSimpleList: {
             type: Boolean,
             default: false
-        }
+        },
+        searchQuery: String
+    },
+    data() {
+        return {
+            activeTeamIndex: null
+        };
     },
     methods: {
         updateActiveTeamIndex(index) {
@@ -59,6 +59,20 @@ export default {
         },
         getItemClass(index) {
             return ['team-item d-flex flex-row align-items-center', this.isActiveIndex(index) ? 'focused' : null];
+        },
+        highlightText(text) {
+            if (this.searchQuery && text.toLowerCase().includes(this.searchQuery.toLowerCase())) {
+                const regex = new RegExp(this.searchQuery, 'gi');
+                return text.replace(regex, match => `<span class="highlight">${match}</span>`);
+            }
+            return text;
+        },
+        formattedLeagues(team) {
+            if (team.leagues && team.leagues.length > 0) {
+                const formattedLeagues = team.leagues.map(league => this.highlightText(league));
+                return formattedLeagues.join(", ");
+            }
+            return "";
         }
     }
 }

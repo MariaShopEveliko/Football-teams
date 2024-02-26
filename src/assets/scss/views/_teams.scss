@@ -24,18 +24,22 @@
       margin-left: 6px;
       background: transparent url(/src/assets/img/stadium.svg) 6px center/14px
         no-repeat;
-        
-        &::before{
-          content: '';
-          position: absolute;
-          left: 0;
-          top: 0;
-          bottom: 0;
-          margin: auto;
-          width: 1px;
-          height: 10px;
-          background-color: $blue-100;
-        }
+
+      &::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        width: 1px;
+        height: 10px;
+        background-color: $blue-100;
+      }
+    }
+    
+    .highlight {
+      color: $primary;
     }
 
     &.focused {

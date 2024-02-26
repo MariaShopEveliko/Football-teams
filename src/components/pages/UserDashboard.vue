@@ -25,7 +25,8 @@
             <h2 class="text-uppercase">Search teams</h2>
             <SearchBox v-model="searchQuery" @input="search" @clear="clearSearch" />
             <TeamList v-if="filteredTeams.length > 0" :teams="filteredTeams" 
-                :isFollowingTheTeam="isFollowingTheTeam" :toggleFollow="toggleFollow" />
+                :isFollowingTheTeam="isFollowingTheTeam" :toggleFollow="toggleFollow"
+                :searchQuery="searchQuery" />
             <NotFound v-else :errorText="'No Teams Found'" />
         </div>
         <div class="profile-card-footer">
