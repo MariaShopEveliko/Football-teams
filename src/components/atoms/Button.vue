@@ -9,10 +9,7 @@
 export default {
     name: "Button",
     props: {
-        btnStyle: {
-            type: String,
-            default: 'btn-primary'
-        },
+        btnStyle: String,
         handleClick: {
             type: Function,
             required: true

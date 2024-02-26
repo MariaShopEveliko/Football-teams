@@ -11,6 +11,8 @@
 
   @media screen and (max-width: $grid-breakpoints-sm) {
     margin-top: 0;
+    border-radius: 0;
+    max-width: none;
   }
 
   .profile-card-header {
@@ -88,7 +90,7 @@
 
         &.active:before,
         &:hover:before,
-        &:focus:before{
+        &:focus:before {
           width: 100%;
         }
       }
@@ -96,8 +98,12 @@
   }
 
   .profile-card-body {
-    padding: var(--card-p-top) var(--card-p-x) 0
-      var(--card-p-x);
+    padding: var(--card-p-top) var(--card-p-x) 0 var(--card-p-x);
+
+    .teams-wrp {
+      margin-top: 10px;
+      margin-bottom: 5px;
+    }
   }
 
   .profile-card-footer {

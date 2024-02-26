@@ -23,18 +23,18 @@ export default new Vuex.Store({
       localStorage.setItem("allTeams", JSON.stringify(teams));
     },
     toggleFollow(state, teamId) {
+      const currentTeam = state.followedTeams.find((team) => team.id === teamId);
       const team = state.allTeams.find((team) => team.id === teamId);
-      if (team) {
-        team.is_following = !team.is_following;
-        if (team.is_following) {
-          state.followedTeams.push(team); 
-        } else {
+
+      if (currentTeam) {
           state.followedTeams = state.followedTeams.filter(
-            (t) => t.id !== team.id
+            (team) => team.id !== teamId
           );
-        }
-        localStorage.setItem("followedTeams", JSON.stringify(state.followedTeams));
+      } else{
+        state.followedTeams.push(team); 
       }
+      
+      localStorage.setItem("followedTeams", JSON.stringify(state.followedTeams));
     },
     clearAllTeams(state) {
       localStorage.removeItem("allTeams");

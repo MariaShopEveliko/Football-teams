@@ -14,46 +14,24 @@
             </div>
             <ul class="profile-tabs d-flex justify-content-center text-uppercase fs-xs">
                 <li>
-                    <a href="#" class="active">My teams</a>
+                    <a href="javascript:void(0)" class="active">My teams</a>
                 </li>
                 <li>
-                    <a href="#">About</a>
+                    <a href="javascript:void(0)">About</a>
                 </li>
             </ul>
         </div>
         <div class="profile-card-body">
             <h2 class="text-uppercase">Search teams</h2>
             <SearchBox v-model="searchQuery" @input="search" @clear="clearSearch" />
-            <ul v-if="filteredTeams.length > 0" role="list" tabindex="0" class="teams-wrp">
-                <li v-for="(team, index) in filteredTeams" :key="index" role="listitem" tabindex="-1"
-                    :class="['team-item d-flex flex-row align-items-center', isActiveIndex(index) ? 'focused' : null]"
-                    @mouseover="updateActiveTeamIndex(index)" @focus="updateActiveTeamIndex(index)">
-                    <div class="team-logo">
-                        <img src="@/assets/img/team-placeholder.png" :alt="team.name + ' logo'" />
-                    </div>
-                    <div class="flex-1">
-                        <div><span class="text-muted fs-xs" v-if="team.leagues">{{ team.leagues.join(", ") }}</span></div>
-                        <span>{{ team.name }}</span> <span v-if="team.stadium" class="fs-sm text-muted">
-                            | {{ team.stadium
-                            }}</span>
-                    </div>
-                    <button
-                        :class="['btn btn-sm text-uppercase', isFollowingTheTeam(team) ? 'btn-outlined-primary' : 'btn-primary']"
-                        @click="toggleFollow(team)">
-                        {{ isFollowingTheTeam(team) ? 'Following' : 'Follow' }}
-                    </button>
-                </li>
-            </ul>
+            <TeamList v-if="filteredTeams.length > 0" :teams="filteredTeams" 
+                :isFollowingTheTeam="isFollowingTheTeam" :toggleFollow="toggleFollow" />
             <NotFound v-else :errorText="'No Teams Found'" />
         </div>
         <div class="profile-card-footer">
             <h2 class="text-uppercase">My teams</h2>
-            <ul v-if="followedTeams.length > 0">
-                <li v-for="(team, index) in followedTeams" :key="index">
-                    {{ team.id }}
-                    {{ team.name }}
-                </li>
-            </ul>
+            <TeamList v-if="followedTeams.length > 0" :teams="followedTeams" 
+                :isFollowingTheTeam="isFollowingTheTeam" :toggleFollow="toggleFollow" :isSimpleList="true" />
             <div v-else class="no-teams-wrp text-muted w-100 d-flex align-items-center justify-content-center">
                 <p class="m-0 fs-sm">You aren't following any teams yet.</p>
             </div>
@@ -65,12 +43,16 @@
 import { mapGetters, mapActions } from "vuex";
 import NotFound from "../molecules/NotFound.vue";
 import SearchBox from "../molecules/SearchBox.vue";
+import Button from "../atoms/Button.vue";
+import TeamList from "../organisms/TeamList.vue";
 
 export default {
     name: "UserDashboard",
     components: {
         NotFound,
-        SearchBox
+        SearchBox,
+        Button,
+        TeamList
     },
     computed: {
         ...mapGetters(["allTeams", "followedTeams"]),
@@ -79,8 +61,7 @@ export default {
         return {
             searchQuery: "",
             filteredTeams: [],
-            useName: "RichyRich",
-            activeTeamIndex: null
+            useName: "RichyRich"
         };
     },
     methods: {
@@ -126,12 +107,6 @@ export default {
         clearSearch() {
             this.searchQuery = "";
             this.filteredTeams = this.allTeams;
-        },
-        updateActiveTeamIndex(index){
-            this.activeTeamIndex = index;
-        },
-        isActiveIndex(index){
-            return this.activeTeamIndex === index
         }
     },
     beforeMount() {

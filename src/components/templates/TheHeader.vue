@@ -6,7 +6,7 @@
                 <span class="sr-only">Go back to ...</span></a>
             <a href="https://oddspedia.com" class="logo">
                 <picture>
-                    <source media="(min-width:1280px)" srcset="@/assets/img/logo.png" />
+                    <source media="(min-width:992px)" srcset="@/assets/img/logo.png" />
                     <img src="@/assets/img/logo-mobile.png" alt="Logo" />
                 </picture>
             </a>

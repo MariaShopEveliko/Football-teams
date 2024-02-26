@@ -9,9 +9,7 @@
 export default {
     name: "NotFound",
     props: {
-        errorText: {
-            type: String,
-        },
+        errorText: String
     },
 }
 </script>
