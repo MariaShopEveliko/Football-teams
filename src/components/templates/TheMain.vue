@@ -3,6 +3,7 @@
   <UserDashboard />
   </main>
 </template>
+
 <script>
 import UserDashboard from "../pages/UserDashboard.vue";
 

@@ -1,16 +1,16 @@
 .teams-wrp {
   .team-item {
-    padding: 5px 10px;
+    padding: 0.357rem 0.714rem;
     transition: $transition background-color;
 
     .team-logo {
-      background-color: $grey-100;
+      width: 2.857rem;
+      height: 2.857rem;
       border-radius: 50%;
-      width: 40px;
-      height: 40px;
-      padding: 6px;
+      padding: 0.857rem;
+      background-color: $grey-100;
       transition: $transition background-color;
-      margin-right: 15px;
+      margin-right: 1.0715rem;
     }
 
     .team-name {
@@ -19,11 +19,10 @@
     }
 
     .team-stadium-wrp {
-      padding-left: 24px;
       position: relative;
-      margin-left: 6px;
-      background: transparent url(/src/assets/img/stadium.svg) 6px center/14px
-        no-repeat;
+      padding-left: 1.714rem;
+      margin-left: 0.4285rem;
+      background: transparent url(/src/assets/img/stadium.svg) 0.4285rem 0/1rem no-repeat;
 
       &::before {
         content: "";
@@ -32,12 +31,12 @@
         top: 0;
         bottom: 0;
         margin: auto;
-        width: 1px;
-        height: 10px;
+        width: 0.0715rem;
+        height: 0.714rem;
         background-color: $blue-100;
       }
     }
-    
+
     .highlight {
       color: $primary;
     }
@@ -48,6 +47,10 @@
       .team-logo {
         background-color: $white;
       }
+    }
+
+    &:focus {
+      outline: none;
     }
   }
 }

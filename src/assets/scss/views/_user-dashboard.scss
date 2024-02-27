@@ -1,71 +1,61 @@
 .profile-card {
-  --card-p-top: 16px;
-  --card-p-bottom: 10px;
-  --card-p-x: 10px;
+  --border-w: 0.571rem;
+  --card-p-top: 1.143rem;
+  --card-p-bottom: 0.714rem;
 
   background-color: $white;
   border-radius: $border-radius;
-  max-width: 600px;
-  margin: 16px auto;
+  max-width: 42.857rem;
+  margin: 1.143rem auto;
   overflow: hidden;
 
-  @media screen and (max-width: $grid-breakpoints-sm) {
-    margin-top: 0;
-    border-radius: 0;
-    max-width: none;
+  .profile-card-title {
+    margin: 0 1.0715rem 1.143rem;
   }
 
   .profile-card-header {
-    --avatar-size: 60px;
+    --avatar-size: 4.286rem;
+
     background-color: $blue-600;
 
     .profile-info-wrp {
-      padding: 40px 42px 32px 42px;
-
-      @media screen and (max-width: $grid-breakpoints-sm) {
-        align-items: center;
-      }
+      padding: 2.857rem 3rem 2.286rem 3rem;
 
       .profile-img {
         background: center/cover no-repeat;
         border-radius: 50%;
         width: var(--avatar-size);
         height: var(--avatar-size);
-        margin-right: 20px;
-
-        @media screen and (max-width: $grid-breakpoints-sm) {
-          margin-right: 0;
-        }
+        margin-right: 1.429rem;
       }
 
       .profile-level-wrp {
-        margin-top: 6px;
+        margin-top: 0.429rem;
         width: var(--avatar-size);
 
         .profile-level {
           background-color: rgba($white, 0.05);
-          border-radius: 40px;
-          padding: 2px 9px;
+          border-radius: 2.857rem;
+          padding: 0.143rem 0.643rem;
           font-family: "Montserrat";
         }
       }
+
       .profil-name {
         font-family: "Montserrat";
         font-style: italic;
         font-weight: 700;
-
-        @media screen and (max-width: $grid-breakpoints-sm) {
-          display: none;
-        }
       }
     }
+
     .profile-tabs {
-      border-top: 1px solid rgba($white, 0.2);
+      border-top: 0.0715rem solid rgba($blue-200, 0.2);
+
       a {
         color: $blue-200;
         text-decoration: none;
-        padding: 12px 5px;
-        margin: 0 7px;
+        padding: 0.857rem 0.357rem;
+        margin: 0 0.5rem;
         display: inline-block;
         font-weight: 500;
         position: relative;
@@ -73,9 +63,9 @@
         &:before {
           content: "";
           width: 0;
-          height: 3px;
+          height: 0.214rem;
           background-color: $primary;
-          border-radius: 8px 8px 0px 0px;
+          border-radius: 0.571rem 0.571rem 0 0;
           position: absolute;
           bottom: 0;
           left: 0;
@@ -98,26 +88,56 @@
   }
 
   .profile-card-body {
-    padding: var(--card-p-top) var(--card-p-x) 0 var(--card-p-x);
+    padding-top: var(--card-p-top);
 
     .teams-wrp {
-      margin-top: 10px;
-      margin-bottom: 5px;
+      margin: 0.714rem 0 0.357rem;
+    }
+
+    .input-wrp {
+      margin: 0 0.714rem;
     }
   }
 
   .profile-card-footer {
-    --border-w: 8px;
     border-top: var(--border-w) solid $blue-100;
-    padding: calc(var(--card-p-top) + var(--border-w)) var(--card-p-x)
-      var(--card-p-bottom) var(--card-p-x);
+    padding: calc(var(--card-p-top) + var(--border-w)) 0 var(--card-p-bottom);
 
     .no-teams-wrp {
       background-color: $grey-100;
       border-radius: $border-radius;
-      min-height: 90px;
-      padding: 20px;
+      min-height: 5.357rem;
+      padding: 1.429rem;
       text-align: center;
+      margin: 0 0.714rem;
+    }
+  }
+
+  @media screen and (max-width: $grid-breakpoints-sm) {
+    margin-top: 0;
+    border-radius: 0;
+    max-width: none;
+
+    .profile-card-header .profile-info-wrp {
+      .profile-img {
+        margin-right: 0;
+      }
+
+      .profil-name {
+        display: none;
+      }
+    }
+    .profile-card-body {
+      border-top: var(--border-w) solid $blue-100;
+      padding-top: calc(var(--card-p-top) + var(--border-w));
+    }
+
+    .profile-card-footer {
+      padding-bottom: 0.357rem;
+      .teams-wrp {
+        border-top: 0.0715rem solid rgba($grey-100, 0.4);
+        padding-top: 0.357rem;
+      }
     }
   }
 }

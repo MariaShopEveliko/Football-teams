@@ -1,7 +1,8 @@
 <template>
-    <button :class="['btn', btnStyle]" @click="handleClick">
-        {{ btnText }}
-        <span v-if="srText" class="visually-hidden">{{ srText }}</span>
+    <button :class="btnStyle" @click="handleClick" :type="btnType">
+        <slot></slot>
+        {{ btnText ?? btnText }}
+        <span v-if="srText" class="sr-only">{{ srText }}</span>
     </button>
 </template>
   
@@ -12,10 +13,14 @@ export default {
         btnStyle: String,
         handleClick: {
             type: Function,
-            required: true
+            default: () => { }
         },
         srText: String,
-        btnText: String
+        btnText: String,
+        btnType: {
+            type: String,
+            default: 'button'
+        },
     }
 };
 </script>

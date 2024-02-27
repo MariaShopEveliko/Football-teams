@@ -1,41 +1,30 @@
 .input-wrp {
-  background: $grey-100 url("/src/assets/img/search.svg") 14px center/17px no-repeat;
-  border-radius: 80px;
   position: relative;
+  background: $grey-100 url("/src/assets/img/search.svg") 1rem center/1.214rem no-repeat;
+  border-radius: 5.714rem;
 
   .input {
+    width: 100%;
+    padding: 0.714rem 3.143rem;
+    line-height: 1.3rem;
     background-color: transparent;
     border: 0;
-    padding: 10px 44px;
     color: $blue-500;
-    width: 100%;
-    line-height: 1.3rem;
 
-    &::-webkit-input-placeholder{
-        color: $blue-200;
-    }
-
-    &::-moz-placeholder{
-        color: $blue-200;
-    }
-    
-    &:-ms-input-placeholder{
-        color: $blue-200;
-    }
-
-    &:-moz-placeholder{
-        color: $blue-200;
+    &::placeholder {
+      color: $blue-200;
     }
   }
 
   .clear-btn {
-    background: transparent url("/src/assets/img/close.svg") center/12px no-repeat;
-    width: 20px;
-    height: 20px;
     position: absolute;
-    right: 14px;
-    top:0;
+    top: 0;
+    right: 1rem;
     bottom: 0;
     margin: auto;
+    width: 1.429rem;
+    height: 1.429rem;
+    background: transparent url("/src/assets/img/close.svg") center/12px
+      no-repeat;
   }
 }

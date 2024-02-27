@@ -15,6 +15,7 @@ body {
 body {
   margin: 0;
 }
+
 main {
   background-color: $grey-100;
 
@@ -22,14 +23,21 @@ main {
     background-color: $grey-200;
   }
 }
+
 ul {
   list-style-type: none;
   padding: 0;
   margin: 0;
 }
-img{
-    vertical-align: middle;
+
+img {
+  vertical-align: middle;
 }
+
+input:focus {
+  outline: none;
+}
+
 .sr-only {
   @include sr-only;
 }

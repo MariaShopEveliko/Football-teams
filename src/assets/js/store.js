@@ -10,12 +10,12 @@ export default new Vuex.Store({
     pageTitle: "Oddspedia"
   },
   getters: {
-    allTeams: (state) => state.allTeams,
-    followedTeams: (state) => state.followedTeams,
-    pageTitle: (state) => state.pageTitle
+    allTeams: state => state.allTeams,
+    followedTeams: state => state.followedTeams,
+    pageTitle: state => state.pageTitle
   },
   mutations: {
-    setPageTitle(state, title){
+    setPageTitle(state, title) {
       state.pageTitle = title;
     },
     setTeams(state, teams) {
@@ -23,15 +23,13 @@ export default new Vuex.Store({
       localStorage.setItem("allTeams", JSON.stringify(teams));
     },
     toggleFollow(state, teamId) {
-      const currentTeam = state.followedTeams.find((team) => team.id === teamId);
-      const team = state.allTeams.find((team) => team.id === teamId);
+      const currentTeam = state.followedTeams.find(team => team.id === teamId);
+      const team = state.allTeams.find(team => team.id === teamId);
 
       if (currentTeam) {
-          state.followedTeams = state.followedTeams.filter(
-            (team) => team.id !== teamId
-          );
-      } else{
-        state.followedTeams.push(team); 
+        state.followedTeams = state.followedTeams.filter(team => team.id !== teamId);
+      } else {
+        state.followedTeams.push(team);
       }
       
       localStorage.setItem("followedTeams", JSON.stringify(state.followedTeams));

@@ -1,24 +1,23 @@
 header {
+  display: flex;
   align-items: center;
+  justify-content: space-between;
   background-color: $blue-400;
   color: $white;
-  display: flex;
-  justify-content: space-between;
-  padding: 30px 25px;
+  padding: 2.143rem 1.786rem;
 
   @media screen and (max-width: $grid-breakpoints-sm) {
-    padding: 17.5px 15px;
+    padding: 1.0715rem 0.9375rem;
   }
 
   .logo {
-    height: 18px;
-    margin-left: 15px;
+    height: 1.286rem;
+    margin-left: 1.0715rem;
   }
 
   .notifications {
-    --size: 20px;
-    background: transparent url("/src/assets/img/notification.svg") center/cover
-      no-repeat;
+    --size: 1.429rem;
+    background: transparent url("/src/assets/img/notification.svg") center/cover no-repeat;
     border: none;
     height: var(--size);
     padding: 0;
@@ -26,27 +25,28 @@ header {
     width: var(--size);
 
     &-count {
-      --size: 18px;
-      --border: 2px;
+      --size: 1.286rem;
+      --border: 0.143rem;
       background-color: $primary;
       border: var(--border) solid $blue-400;
       border-radius: 50%;
-      bottom: -8px;
+      bottom: -0.571rem;
       color: $white;
-      font-size: $font-size-xxs;
+      font-size: 0.857rem;
       height: var(--size);
       line-height: calc(var(--size) - var(--border));
       position: absolute;
-      right: -8px;
+      right: -0.571rem;
       text-align: center;
       width: var(--size);
     }
   }
-  .page-title{
-    color: $white; 
 
-    @media screen and (min-width: $grid-breakpoints-sm){
-      @include sr-only; 
+  .page-title {
+    color: $white;
+
+    @media screen and (min-width: $grid-breakpoints-sm) {
+      @include sr-only;
     }
   }
 }

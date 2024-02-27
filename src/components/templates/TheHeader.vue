@@ -1,7 +1,7 @@
 <template>
     <header>
         <div>
-            <a href="#" class="back-btn">
+            <a href="javascript:void(0)" class="back-btn">
                 <img src="@/assets/img/arrow-left.svg" />
                 <span class="sr-only">Go back to ...</span></a>
             <a href="https://oddspedia.com" class="logo">
@@ -12,7 +12,7 @@
             </a>
         </div>
         <h1 class="page-title fs-lg m-0">{{ pageTitle }}</h1>
-        <button type="button" class="btn notifications">
+        <Button :btn-style="'notifications'">
             <div class="notifications-count">
                 <span class="sr-only">Notifications count is </span> 2
             </div>
@@ -22,9 +22,13 @@
 
 <script>
 import { mapGetters } from "vuex";
+import Button from "../atoms/Button.vue";
 
 export default {
     name: "TheHeader",
+    components: {
+        Button
+    },
     computed: {
         ...mapGetters(["pageTitle"])
     }

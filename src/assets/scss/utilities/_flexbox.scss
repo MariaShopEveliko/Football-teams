@@ -1,15 +1,20 @@
+.d-flex {
+  display: flex;
+}
 .align-items-center {
   align-items: center;
 }
 .justify-content-center {
   justify-content: center;
 }
-.flex-1 {
-  flex-grow: 1;
-}
-.flex-column {
-  flex-direction: column;
-}
-.flex-row {
-  flex-direction: row;
+.flex {
+  &-column {
+    flex-direction: column;
+  }
+  &-row {
+    flex-direction: row;
+  }
+  &-1 {
+    flex-grow: 1;
+  }
 }

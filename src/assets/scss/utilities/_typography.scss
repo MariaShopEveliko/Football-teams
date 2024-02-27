@@ -1,9 +1,4 @@
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+h1, h2, h3, h4, h5, h6 {
   margin-bottom: 1.142857rem;
   margin-top: 0;
   font-family: "Montserrat";
@@ -16,6 +11,7 @@ h6 {
 h1 {
   font-size: $font-size-md;
 }
+
 h2 {
   font-size: $font-size-base;
 }
@@ -23,33 +19,36 @@ h2 {
 p {
   margin-bottom: 1rem;
 }
-.fs-xxs {
-  font-size: $font-size-xxs;
-}
-.fs-xs {
-  font-size: $font-size-xs;
-}
-.fs-sm {
-  font-size: $font-size-sm;
-}
-.fs-md {
-  font-size: $font-size-md;
-}
-.fs-lg {
-  font-size: $font-size-lg;
+
+.fs {
+  &-xxs {
+    font-size: $font-size-xxs;
+  }
+  &-xs {
+    font-size: $font-size-xs;
+  }
+  &-sm {
+    font-size: $font-size-sm;
+  }
+  &-md {
+    font-size: $font-size-md;
+  }
+  &-lg {
+    font-size: $font-size-lg;
+  }
 }
 
-.text-uppercase {
-  text-transform: uppercase;
-}
-
-.text-muted {
-  color: $blue-200;
-}
-
-.text-center {
-  text-align: center;
-}
-.text-white {
-  color: $white;
+.text {
+  &-center {
+    text-align: center;
+  }
+  &-uppercase {
+    text-transform: uppercase;
+  }
+  &-muted {
+    color: $blue-200;
+  }
+  &-white {
+    color: $white;
+  }
 }

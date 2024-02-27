@@ -1,27 +1,43 @@
+button {
+  display: inline-block;
+  vertical-align: middle;
+  text-align: center;
+  text-decoration: none;
+  font-family: "Roboto";
+  font-size: $font-size-sm;
+  font-weight: 500;
+  border: 1px solid transparent;
+  transition: $transition;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
 .btn {
-    border: 1px solid transparent;
-    display: inline-block;
-    font-family: "Roboto";
-    font-size: $font-size-sm;
-    font-weight: 500;
-    text-align: center;
-    text-decoration: none;
-    vertical-align: middle;
-  
-    &:hover {
-      cursor: pointer;
-    }
+  &-sm {
+    padding: 0.5714rem 1.4286rem;
+    border-radius: 5.7143rem;
   }
-  .btn-sm {
-    border-radius: 80px;
-    padding: 8px 20px;
-  }
-  .btn-primary {
+
+  &-primary {
     background-color: $primary;
     color: $white;
+
+    &:hover {
+      background-color: $blue-400;
+    }
   }
-  .btn-outlined-primary {
+
+  &-outlined-primary {
     background-color: $white;
     border: 1px solid $primary;
     color: $primary;
+
+    &:hover {
+      background-color: $blue-400;
+      color: $white;
+      border-color: $blue-400;
+    }
   }
+}

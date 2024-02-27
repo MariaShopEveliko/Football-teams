@@ -22,7 +22,7 @@
             </ul>
         </div>
         <div class="profile-card-body">
-            <h2 class="text-uppercase">Search teams</h2>
+            <h2 class="text-uppercase profile-card-title">Search teams</h2>
             <SearchBox v-model="searchQuery" @input="search" @clear="clearSearch" />
             <TeamList v-if="filteredTeams.length > 0" :teams="filteredTeams" 
                 :isFollowingTheTeam="isFollowingTheTeam" :toggleFollow="toggleFollow"
@@ -30,10 +30,10 @@
             <NotFound v-else :errorText="'No Teams Found'" />
         </div>
         <div class="profile-card-footer">
-            <h2 class="text-uppercase">My teams</h2>
+            <h2 class="text-uppercase profile-card-title">My teams</h2>
             <TeamList v-if="followedTeams.length > 0" :teams="followedTeams" 
                 :isFollowingTheTeam="isFollowingTheTeam" :toggleFollow="toggleFollow" :isSimpleList="true" />
-            <div v-else class="no-teams-wrp text-muted w-100 d-flex align-items-center justify-content-center">
+            <div v-else class="no-teams-wrp text-muted d-flex align-items-center justify-content-center">
                 <p class="m-0 fs-sm">You aren't following any teams yet.</p>
             </div>
         </div>
