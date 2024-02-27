@@ -138,9 +138,13 @@
 
     .profile-card-footer {
       padding-bottom: 0.357rem;
+
       .teams-wrp {
         border-top: 0.0715rem solid rgba($grey-100, 0.4);
         padding-top: 0.357rem;
+      }
+      .no-teams-wrp{
+        margin-bottom: 0.357rem;
       }
     }
   }
