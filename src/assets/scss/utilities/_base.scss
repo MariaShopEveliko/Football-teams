@@ -41,3 +41,7 @@ input:focus {
 .sr-only {
   @include sr-only;
 }
+
+:focus-visible {
+  outline: $blue-400 solid 1px;
+}

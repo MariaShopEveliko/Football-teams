@@ -51,7 +51,7 @@
     .profile-tabs {
       border-top: 0.0715rem solid rgba($blue-200, 0.2);
 
-      a {
+      .profile-tabs-link {
         color: $blue-200;
         text-decoration: none;
         padding: 0.857rem 0.357rem;
@@ -118,13 +118,17 @@
     border-radius: 0;
     max-width: none;
 
-    .profile-card-header .profile-info-wrp {
-      .profile-img {
-        margin-right: 0;
-      }
+    .profile-card-header {
+      .profile-info-wrp {
+        align-items: center;
 
-      .profil-name {
-        display: none;
+        .profile-img {
+          margin-right: 0;
+        }
+
+        .profil-name {
+          display: none;
+        }
       }
     }
     .profile-card-body {

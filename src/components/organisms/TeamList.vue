@@ -1,6 +1,6 @@
 <template>
-    <ul role="list" tabindex="0" class="teams-wrp">
-        <li v-for="(team, index) in teams" :key="index" role="listitem" tabindex="-1" :class="getItemClass(index)"
+    <ul class="teams-wrp">
+        <li v-for="(team, index) in teams" :key="index" tabindex="0" :class="getItemClass(index)"
             @mouseover="updateActiveTeamIndex(index)" @focus="updateActiveTeamIndex(index)" @focusout="resetActiveIndex"
             @mouseout="resetActiveIndex">
             <div class="team-logo">

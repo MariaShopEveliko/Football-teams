@@ -2,7 +2,7 @@
     <header>
         <div>
             <a href="javascript:void(0)" class="back-btn">
-                <img src="@/assets/img/arrow-left.svg" />
+                <img src="@/assets/img/arrow-left.svg" alt="Go back icon" />
                 <span class="sr-only">Go back to ...</span></a>
             <a href="https://oddspedia.com" class="logo">
                 <picture>
@@ -13,9 +13,9 @@
         </div>
         <h1 class="page-title fs-lg m-0">{{ pageTitle }}</h1>
         <Button :btn-style="'notifications'">
-            <div class="notifications-count">
+            <span class="notifications-count">
                 <span class="sr-only">Notifications count is </span> 2
-            </div>
+            </span>
         </button>
     </header>
 </template>
