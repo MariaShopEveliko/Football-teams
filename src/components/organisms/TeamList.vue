@@ -1,10 +1,10 @@
 <template>
     <ul class="teams-wrp">
-        <li v-for="(team, index) in teams" :key="index" tabindex="0" :class="getItemClass(index)"
+        <li v-for="(team, index) in teams" :key="index" tabindex="0" :class="itemClass(index)"
             @mouseover="updateActiveTeamIndex(index)" @focus="updateActiveTeamIndex(index)" @focusout="resetActiveIndex"
             @mouseout="resetActiveIndex">
             <div class="team-logo">
-                <img src="@/assets/img/team-placeholder.png" :alt="team.name + ' logo'" />
+                <img src="@/assets/img/team-placeholder.png" :alt="team.name" />
             </div>
             <div class="flex-1">
                 <span class="text-muted fs-xs" v-if="team.leagues && !isSimpleList" v-html="formattedLeagues(team)"></span>
@@ -14,9 +14,7 @@
                         v-html="highlightText(team.stadium)"></span>
                 </div>
             </div>
-            <Button v-if="!isSimpleList"
-                :btnStyle="'btn-sm text-uppercase ' + (isFollowingTheTeam(team) ? 'btn-outlined-primary' : 'btn-primary')"
-                :btnText="isFollowingTheTeam(team) ? 'Following' : 'Follow'" :handleClick="() => toggleFollow(team)" />
+            <Button v-if="!isSimpleList" :btnStyle="btnClasses(team)" :btnText="btnLabel(team)" :handleClick="() => toggleFollow(team)" />
         </li>
     </ul>
 </template>
@@ -57,7 +55,7 @@ export default {
         resetActiveIndex() {
             this.activeTeamIndex = null;
         },
-        getItemClass(index) {
+        itemClass(index) {
             return ['team-item d-flex flex-row align-items-center', this.isActiveIndex(index) ? 'focused' : null];
         },
         highlightText(text) {
@@ -73,6 +71,12 @@ export default {
                 return formattedLeagues.join(", ");
             }
             return "";
+        },
+        btnLabel(team){
+            return this.isFollowingTheTeam(team) ? 'Following' : 'Follow';
+        },
+        btnClasses(team){
+            return 'btn-sm text-uppercase ' + (this.isFollowingTheTeam(team) ? 'btn-outlined-primary' : 'btn-primary');
         }
     }
 }
